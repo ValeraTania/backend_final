@@ -21,6 +21,23 @@ const validateProduct = [
     .optional()
     .isLength({ min: 13, max: 13 })
     .withMessage("EAN must be 13 chars long"),
+  check("image").custom((value, { req }) => {
+    if (!req.files || !req.files.image) {
+      throw new Error("Image is required");
+    }
+    const image = req.files.image;
+    const allowedTypes = ["image/jpeg", "image/png"];
+
+    if (!allowedTypes.includes(image.mimetype)) {
+      throw new Error("Invalid image format. Only JPEG and PNG allowed");
+    }
+
+    if (image.size > 5 * 1024 * 1024) {
+      throw new Error("Image size exceeds the max kimit of 5mg");
+    }
+
+    return true;
+  }),
 ];
 router.post("/products", validateProduct, productController.create);
 

@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import productRouter from "./routers/productRouter.js";
+import fileUpload from "express-fileupload";
 
 dotenv.config();
 
@@ -10,6 +11,7 @@ const PORT = process.env.PORT || 4000;
 const MONGO_URI = process.env.MONGO_URI || "";
 
 app.use(express.json());
+app.use(fileUpload());
 app.use(express.static("static"));
 app.get("/", (req, res) => {
   res.json({ test: true });
