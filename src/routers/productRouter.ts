@@ -1,8 +1,14 @@
-import { Router } from "express";
+import { NextFunction, Router } from "express";
 import productController from "../controller/productController.js";
 import { check } from "express-validator";
 
 const router = Router();
+
+export default function authMiddleWare(roles:string[]){  //colocar en middleware
+  return function (req:Request, res: Response, next:NextFunction){
+    const token = req.headers.authorization;
+  } 
+}
 
 router.get("/products", productController.getAllProduct);
 
