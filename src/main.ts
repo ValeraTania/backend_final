@@ -1,39 +1,52 @@
-import express from "express";
-import dotenv from "dotenv";
-import mongoose from "mongoose";
-import productRouter from "./routers/productRouter.js";
+// 
+
+import express, { Express, Request, Response } from "express";
+
+import userRouter from './routers/userRouter.js';
+import movieRouter from './routers/movieRouter.js';
+import dotenv from 'dotenv';
+import cors from 'cors';
 import fileUpload from "express-fileupload";
+import mongoose from "mongoose";
 
 dotenv.config();
 
-const app = express();
+const app: Express = express();
 const PORT = process.env.PORT || 4000;
-const MONGO_URI = process.env.MONGO_URI || "";
+const MONGO_URI = process.env.MONGO_URI || '';
 
 app.use(express.json());
 app.use(fileUpload());
+app.use(cors({
+  origin: '*'
+}))
+
 app.use(express.static("static"));
-app.get("/", (req, res) => {
-  res.json({ test: true });
-});
-app.use("/api", productRouter);
+
+
+app.get('/', (req: Request, res: Response) => {
+  res.json({ status: 'ok' })
+})
+
+app.use('/auth', userRouter);
+app.use('/api/movies', movieRouter);
+
+
+
 
 const startApp = async () => {
   try {
+    mongoose.set('strictQuery', true);
+
     await mongoose.connect(MONGO_URI);
-    console.log("Succesfully connected to MongoDB");
+    console.log('Successfully connected to DB');
 
     app.listen(PORT, () => {
-      console.log(process.env.NODE_ENV);
-      if (process.env.NODE_ENV === "development") {
-        console.log(`Server running in development mode on port ${PORT}`);
-      } else {
-        console.log(`Server running in production mode on port ${PORT}`);
-      }
+      console.log(`Server started on PORT: ${PORT}`);
     });
   } catch (error) {
-    console.log("Error connecting to MongoDB", error);
+    console.error('Error connecting to DB:', error)
   }
-};
+}
 
 startApp();

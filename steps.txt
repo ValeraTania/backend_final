@@ -1,4 +1,0 @@
-STEPS
-modelo dos filmes
-crud- controller
-usar i frame para colocar video-- en front end
