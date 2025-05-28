@@ -1,0 +1,39 @@
+[{
+  "_id": {
+    "$oid": "683724e09b825b0a920fdc26"
+  },
+  "title": "Harry Potter and the Sorcerer's Stone",
+  "releaseDate": "2001-11-16",
+  "trailerLink": "https://www.youtube.com/watch?v=eKSB0gXl9dw",
+  "poster": "harry potter and the sorcerer's stone_poster.jpeg",
+  "genres": [
+    "Adventure, Family, Fantasy"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683725669b825b0a920fdc28"
+  },
+  "title": "The Matrix",
+  "releaseDate": "1999-03-31",
+  "trailerLink": "https://www.youtube.com/watch?v=vKQi3bBA1y8",
+  "poster": "the matrix_poster.jpeg",
+  "genres": [
+    "Action, Sci-Fi"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6837265a9b825b0a920fdc2a"
+  },
+  "title": "Everything Everywhere All at Once",
+  "releaseDate": "2022-03-11",
+  "trailerLink": "https://www.youtube.com/watch?v=p2FEhTw7XWk",
+  "poster": "everything everywhere all at once_poster.jpeg",
+  "genres": [
+    "Action, Sci-Fi, Dramatic comedy"
+  ],
+  "__v": 0
+}]

@@ -1,0 +1,16 @@
+[{
+  "_id": "7d4ef8f9-124b-454e-a866-7bed82e6bd4f",
+  "username": "Tania",
+  "email": "taniaBD@gmail.com",
+  "password": "$2b$07$wud3nbmnr86v/Ox0UMt6v.vpld8d0zG2ZUPpfFcWDdv/v5Fpiu83K",
+  "role": "admin",
+  "__v": 0
+},
+{
+  "_id": "0c2b9317-4e97-4372-8bc7-fb9767b79b14",
+  "username": "Rui Silva",
+  "email": "ruiBD@gmail.com",
+  "password": "$2b$07$jZEvSNi7Va9Ptgko4Hx5n.0cgn9DWbc67CIKHISfx9zNe195bWjy.",
+  "role": "user",
+  "__v": 0
+}]
